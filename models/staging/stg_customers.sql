@@ -1,23 +1,20 @@
 with
 
-source as (
+    source as (select * from {{ source("jaffle_shop", "customers") }}),
 
-    select * from {{ source('jaffle_shop', 'customers') }}
+    renamed as (
 
-),
+        select
 
-renamed as (
+            -- --------  ids
+            id as customer_id,
 
-    select
+            -- -------- text
+            name as customer_name
 
-        ----------  ids
-        id as customer_id,
+        from source
 
-        ---------- text
-        name as customer_name
+    )
 
-    from source
-
-)
-
-select * from renamed
+select *
+from renamed
