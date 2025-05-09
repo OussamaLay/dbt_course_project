@@ -30,6 +30,8 @@ models:
         tests:
           - unique
           - not_null
+      - name: ordered_at
+        description: '{{ doc("order_ordered_at") }}'
   - name: stg_products
     description: staging model for products source table. list of products.
     access: private
