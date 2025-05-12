@@ -41,3 +41,8 @@ models:
     +group: finance
     +access: public
     +warn_unsupported: false
+
+    sataging:
+      materialized: view
+    marts:
+      materialized: table
